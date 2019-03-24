@@ -80,11 +80,53 @@ body {
   flex-wrap: wrap;
 }
 
+.white-card {
+    position: relative;
+    margin: .5rem 0 1rem 0;
+    background-color: #fff;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    border-radius: 2px
+}
+
 /* ===== Header and menu Styles =================================================== */
 .logo{
   max-width: 200px;
   height: auto;
 }
+
+/* ===== Footer =================================================== */
+.fa {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: rgba(255,255,255,.8);
+    transition: all 0.5s ease-in-out;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+footer ul {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+footer ul li {
+  padding-right: 10px;
+}
+.fa-twitter {
+   background-color: #32CCFE;
+}
+.fa-facebook {
+   background-color: #3c599f;
+}
+.fa-github {
+   background-color: #070709;
+}
+
 
 /* ==============
     MOBILE: Menu
@@ -188,7 +230,7 @@ nav a:hover {
    ==================== */
 
     .header-container,
-    .main aside {
+    .main  {
         -webkit-box-shadow: 0 5px 10px #aaa;
            -moz-box-shadow: 0 5px 10px #aaa;
                 box-shadow: 0 5px 10px #aaa;
@@ -211,7 +253,7 @@ nav a:hover {
     WIDE: Main
    ============ */
 
-    .main article {
+    .main {
         float: left;
         width: 57%;
     }

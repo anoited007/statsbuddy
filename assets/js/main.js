@@ -1,5 +1,7 @@
-$(".header-container").load("assets/templates/header.html");
+$.get("assets/templates/header.html", function(data, status){
+   $(".header-container").html(data);
+})
 
-$(function() {
-  Handlebars.registerPartial('header', '../templates/header.mustache');
-});
+$.get("assets/templates/footer.html", function(data, status){
+   $(".footer-container").html(data);
+})
