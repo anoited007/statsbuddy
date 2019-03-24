@@ -1,12 +1,5 @@
 
-// $(fuction(){
-//
-// });
-//
-// fuction renderPageParts(){
-//   $.get("../templates/header", fuction(templates){
-//     $()
-//   })
-//   let headerTmpl =
-//   let footerTmpl =
-// }
+
+$(function() {
+  Handlebars.registerPartial('header', '../templates/header.mustache');
+});
