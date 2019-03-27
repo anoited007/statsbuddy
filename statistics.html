@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>StatsBuddy</title>
+    <meta name="description" content="A Statistics about digital infrastructure in Ghana, Mauritius and United Kingdom. ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/css/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <b>outdated</b> browser. Please upgrade your browser to improve your experience.</p>
+  <![endif]-->
+    <div class="header-container">
+    </div>
+
+    <div id="stats-bg">
+      <img src="assets/img/stats-bg.png"  alt="Particles background image">
+    </div>
+
+    <form>
+      <fieldset>
+        <legend> Choose the dataset to disply statistics for</legend>
+        <input type="radio" name="dataset" id="internet-penetration" value="internet-penetration"/>
+        <label for="internet-penetration">Internet Penetration</label>
+
+        <input type="radio" name="dataset" id="cellular-subscription" value="cellular-subscription"/>
+        <label for="cellular-subscription">Cellular Subscription</label>
+
+        <input type="radio" name="dataset" id="fixed-broadband" value="fixed-broadband"/>
+        <label for="fixed-broadband">Fixed Broadband</label>
+
+        <input type="radio" name="dataset" id="secure-server" value="secure-server"/>
+        <label for="secure-server">Seure Servers</label>
+
+        <input type="radio" name="dataset" id="personal-computers" value="personal-computers"/>
+        <label for="personal-computers">Personal Computers</label>
+
+      </fieldset>
+
+      <fieldset>
+        <legend> Choose the countries to display statistics for</legend>
+        <input type="checkbox" name="country" id="internet-penetration" value="ghana"/>
+        <label for="ghana">Ghana</label>
+
+        <input type="checkbox" name="country" id="mauritius" value="mauritius"/>
+        <label for="mauritius">Mauritius</label>
+
+        <input type="checkbox" name="country" id="united-kingdom" value="united-kingdom"/>
+        <label for="united-kingdom">United Kingdom</label>
+
+      </fieldset>
+
+    </form>
+
+<div id="chart-container">
+  <canvas id="chart" aria-label="chart made from data from worldbank" role="img">
+    <p> Your browser does not support the canvas element. Please consider upgrading your browser. </p>
+
+  </canvas>
+
+</div>
+
+    <footer>
+    </footer>
+</body>
+
+</html>

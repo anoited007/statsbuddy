@@ -64,9 +64,12 @@ body {
 }
 
 
-.header-container,
-.footer-container,
-.main aside {
+.header-container{
+ background-color: #A37774;
+}
+
+footer
+ {
     background: #484A47;
 }
 
@@ -166,10 +169,6 @@ nav a:hover {
 
 .main {
     padding: 30px 0;
-}
-
-.main article h1 {
-    font-size: 2em;
 }
 
 .footer-container footer {
@@ -389,4 +388,12 @@ nav a:hover {
    #hero-image {
     /* color: #fff; */
     /* background: url("https://picsum.photos/900/900/?random") */
+  }
+  /* ========================================
+        Statistics
+     ======================================== */
+  #stats-bg {
+    background: #5C6D70;
+    max-height: 100px;
+    width: 100%;
   }
