@@ -21,6 +21,7 @@ var indicators = {"internet-penetration":"IT.NET.USER.P3","cellular-subscription
                  "gdp":"NY.GDP.MKTP.CD", "gdp-percapita":"NY.GDP.PCAP.PP.KD"};
 
 var country_codes = ["GHA"];
+var country_code ; //will be initialiazed when ready to be used in getCountry function.
 
 //equivalent to $(document).ready()
 $(function(){
@@ -43,6 +44,7 @@ $(function(){
       // Saving the this object in the current context to use it when the contenxt of this changes.
       let element = $(this).attr("data-code");
       let index = country_codes.indexOf(element);
+      country_code = ""; //initialiazed to be used in loop after getting codes.
 
       if( index === -1 && this.checked){
         country_codes.push(element);
@@ -51,8 +53,22 @@ $(function(){
       else if (index >= 0 && !this.checked) {
         country_codes.splice(index, 1);
       }
+
+    for (let i = 0; i < country_codes.length; i++) {
+
+      if(i === country_codes.length -1){
+        country_code += country_codes[i]
+      }
+      else {
+        country_code += country_codes[i] +";"
+      }
+
+    }
+
+
       console.log("This is country " +country_codes);
-      return country_codes;
+      console.log(country_code);
+      return country_code;
       }
 
   function getDataPoint(){
