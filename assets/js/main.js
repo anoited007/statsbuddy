@@ -40,22 +40,20 @@ $(function(){
 
 
     function getCountry(){
-      if($.inArray($(this).attr("data-code"), country_codes) === -1 && this.checked){
-        country_codes.push($(this).attr("data-code"));
+      // Saving the this object in the current context to use it when the contenxt of this changes.
+      let element = $(this).attr("data-code");
+      let index = country_codes.indexOf(element);
+
+      if( index === -1 && this.checked){
+        country_codes.push(element);
       }
 
-      else if ($.inArray($(this).attr("data-code"), country_codes) >= 0 && !this.checked) {
-        country_codes.pop($(this).attr("data-code"));
-      }
-
-      else if ($.inArray($(this).attr("data-code"), countries)  ) {
-
+      else if (index >= 0 && !this.checked) {
+        country_codes.splice(index, 1);
       }
       console.log("This is country " +country_codes);
       return country_codes;
-    }
-
-})
+      }
 
   function getDataPoint(){
     if(this.checked){
@@ -64,8 +62,9 @@ $(function(){
       console.log(indicator);
       return this.value;
   }
-}
+ }
 
+})
 
 $.ajax({url:"assets/js/vendor/test.json"}).done(function(data){
 
