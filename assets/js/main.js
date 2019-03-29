@@ -26,7 +26,7 @@ var country_code ; //will be initialiazed when ready to be used in getCountry fu
 //equivalent to $(document).ready()
 $(function(){
   var countries = $("input[type=checkbox]");
-  var canvas = $("#chart");
+  //var canvas = $("#chart");
 
    // TODO: if country is more than 1 add ';' in between.
   var indicator = "IT.NET.USER.P3";
@@ -82,18 +82,61 @@ $(function(){
 
 })
 
-$.ajax({url:"assets/js/vendor/test.json"}).done(function(data){
+$.ajax({
+  url:"https://api.worldbank.org/v2/country/GBR;GHA/indicators/IT.CEL.SETS.P2?date=2013:2018&format=json",
+  //url:baseUrl+"countries/"+country_code+"indicators/"+indicator+"?date=2013:2018&format=json",
+  crossDomain: true
+}
+).done(function(data){
+  var canvas = $("#chart");
+  let indicatorName;
+  let labels = []; // labels are the names of the countries in the graph
+  let dates = [];
+  let values = [];
 
-    $.each(data[1],function (name, value) {
-      let dates = []
-      let values = []
-      dates.push(this["date"])
-      values.push(Math.round(this["value"]))
+  indicatorName = data[1][0]["indicator"]["value"];
+  console.log(indicatorName);
 
-      console.log(dates)
-      console.log(values)
+  $.each(data[1],function (index, data) {
+    let date = data["date"];
 
-    })
+    if($.inArray(date,dates)=== -1){
+      dates.push(date);
+    }
 
+    values.push(Math.round(this["value"]))
+    let country_name = data.country.value;
+
+// if country name hasn't been added to labels, add it
+    if($.inArray(country_name,labels) === -1){
+      labels.push(country_name);
+    }
+    console.log("printing current items");
+    console.log(labels);
+    console.log(dates);
+    console.log(values);
+
+})
+let element =$("input[type=radio]").filter(function(){return this.checked}).attr("value")
+ new Chart(canvas,{
+  type: 'bar',
+  data: {
+    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    datasets: [
+      {
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [2478,5267,734,784,433]
+      }
+    ]
+  },
+  options: {
+    legend: { display: false },
+    title: {
+      display: true,
+      text: 'Predicted world population (millions) in 2050'
+    }
+  }
+})
 
 })
