@@ -16,6 +16,7 @@ var country_code = "GHA";
 
 //equivalent to $(document).ready()
 $(function(){
+  queryData();
 
   var countries = $("input[type=checkbox]");
   //var canvas = $("#chart");
@@ -28,6 +29,12 @@ $(function(){
 
   $("input[type=checkbox]").each(function() {
     $(this).on("change",getCountry);
+
+  $("input").each(function () {
+    $(this).on("change", queryData);
+  })
+
+
   })
 
 
@@ -73,53 +80,180 @@ $(function(){
 
 })
 
-$.ajax({
-  //let url = baseUrl+"countries/"+country_code+"indicators/"+indicator+"?date=2013:2018&format=json"
-  //url:"https://api.worldbank.org/v2/country/GBR;GHA/indicators/IT.CEL.SETS.P2?date=2013:2018&format=json",
-  url: baseUrl.concat("countries/",country_code,"/indicators/",indicator,"?date=2013:2018&format=json"),
-  crossDomain: true
-}).done(function(data){
-  var canvas = $("#chart");
-  let indicatorName;
-  let labels = []; // labels are the names of the countries in the graph
-  let dates = [];
-  let values = [];
+function queryData() {
+  $.ajax({
+    //let url = baseUrl+"countries/"+country_code+"indicators/"+indicator+"?date=2013:2018&format=json"
+    //url:"https://api.worldbank.org/v2/country/GBR;GHA/indicators/IT.CEL.SETS.P2?date=2013:2018&format=json",
+    url: baseUrl.concat("countries/",country_code,"/indicators/",indicator,"?date=2013:2018&format=json"),
+    crossDomain: true
+  }).done(function(data){
+    let indicatorName;
+    let labels = []; // labels are the names of the countries in the graph
+    let dates = [];
+    let values = [];
 
-if(data[1] != null){
-  indicatorName = data[1][0]["indicator"]["value"];
-  console.log(indicatorName);
+  if(data[1] != null){
+    indicatorName = data[1][0]["indicator"]["value"];
+    console.log(indicatorName);
 
-  $.each(data[1],function (index, data) {
-    let date = data["date"];
+    $.each(data[1],function (index, data) {
+      let date = data["date"];
 
-    if($.inArray(date,dates)=== -1){
-      dates.push(date);
-    }
+      if($.inArray(date,dates)=== -1){
+        dates.push(date);
+      }
 
-    values.push(Math.round(this["value"]))
-    let country_name = data.country.value;
+      values.push(Math.round(this["value"]))
+      let country_name = data.country.value;
 
-// if country name hasn't been added to labels, add it
-    if($.inArray(country_name,labels) === -1){
-      labels.push(country_name);
-    }
-    console.log("printing current items");
-    console.log(labels);
-    console.log(dates);
-    console.log(values);
+  // if country name hasn't been added to labels, add it
+      if($.inArray(country_name,labels) === -1){
+        labels.push(country_name);
+      }
+      console.log("printing current items");
+      console.log(labels);
+      console.log(dates);
+      console.log(values);
 
-})
+  })
+
+  }
+   drawGraph(labels, dates, values, indicatorName);
+
+  })
 
 }
 
+function drawGraph(labels, dates, values, indicatorName) {
+  let canvas = $("#chart");
 
-let element = $("input[type=radio]").filter(function(){return this.checked}).attr("value");
+  let element = $("input[type=radio]").filter(function(){return this.checked}).attr("value");
 
-if(element === "secure-server" || element === "personal-computers"){
+  if(element === "secure-server" || element === "personal-computers"){
+
+      if(labels.length == 1){
+        new Chart(canvas, {
+          type: "bar",
+          data: {
+            labels: dates,
+            datasets: [{
+              label: labels[0],
+              data: values
+            }
+
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: indicatorName
+            }
+          }
+        })
+      }
+
+      else if (labels.length == 2){
+        let valueSet1 = []
+        let valueSet2 = []
+        let midValue = Math.round(labels.length / 2)
+
+        for(let i = 0, j = 0; i < values.length; i++){
+          if(i < midValue){
+            valueSet1[i] = labels[i];
+          }
+          else{
+            valueSet2[j++] = labels[i];
+          }
+          console.log(valueSet1);
+          console.log(valueSet2);
+
+        }
+        new Chart(canvas, {
+            type: 'bar',
+            data: {
+              labels: dates,
+              datasets: [
+                {
+                  label: labels[0],
+                  backgroundColor: "#3e95cd",
+                  data: valueSet1
+                }, {
+                  label: labels[1],
+                  backgroundColor: "#8e5ea2",
+                  data: valueSet2
+                }
+              ]
+            },
+            options: {
+              title: {
+                display: true,
+                text: indicatorName
+              }
+            }
+        });
+
+      }
+
+      else {
+        let valueSet1 = []
+        let valueSet2 = []
+        let valueSet3 = []
+        let midValue = Math.round(labels.length / 3)
+
+        for(let i = 0, j = 0; i < values.length; i++){
+          if(i < midValue) {
+            valueSet1[i] = labels[i];
+          }
+
+          else if (i >= midValue && i < values.length - midValue) {
+            valueSet2[i-midValue] = labels[i];
+          }
+
+          else{
+            valueSet3[j++] = labels[i];
+          }
+
+      }
+
+      new Chart(canvas, {
+          type: 'bar',
+          data: {
+            labels: dates,
+            datasets: [
+              {
+                label: labels[0],
+                backgroundColor: "#3e95cd",
+                data: valueSet1
+              }, {
+                label: labels[1],
+                backgroundColor: "#8e5ea2",
+                data: valueSet2
+              },
+              {
+                label: labels[2],
+                backgroundColor: "#8e5ea2",
+                data: valueSet3
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: indicatorName
+            }
+          }
+      });
+
+
+    }
+
+  }
+
+  else {
 
     if(labels.length == 1){
       new Chart(canvas, {
-        type: "bar",
+        type: "line",
         data: {
           labels: dates,
           datasets: [{
@@ -149,7 +283,7 @@ if(element === "secure-server" || element === "personal-computers"){
 
       }
       new Chart(canvas, {
-          type: 'bar',
+          type: 'line',
           data: {
             labels: dates,
             datasets: [
@@ -196,7 +330,7 @@ if(element === "secure-server" || element === "personal-computers"){
     }
 
     new Chart(canvas, {
-        type: 'bar',
+        type: 'line',
         data: {
           labels: dates,
           datasets: [
@@ -227,120 +361,6 @@ if(element === "secure-server" || element === "personal-computers"){
 
   }
 
-}
-
-else {
-
-  if(labels.length == 1){
-    new Chart(canvas, {
-      type: "line",
-      data: {
-        labels: dates,
-        datasets: [{
-          label: labels[0],
-          data: values
-        }
-
-        ]
-      }
-    })
   }
 
-  else if (labels.length == 2){
-    let valueSet1 = []
-    let valueSet2 = []
-    let midValue = Math.round(labels.length / 2)
-
-    for(let i = 0, j = 0; i < values.length; i++){
-      if(i < midValue){
-        valueSet1[i] = labels[i];
-      }
-      else{
-        valueSet2[j++] = labels[i];
-      }
-      console.log(valueSet1);
-      console.log(valueSet2);
-
-    }
-    new Chart(canvas, {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [
-            {
-              label: labels[0],
-              backgroundColor: "#3e95cd",
-              data: valueSet1
-            }, {
-              label: labels[1],
-              backgroundColor: "#8e5ea2",
-              data: valueSet2
-            }
-          ]
-        },
-        options: {
-          title: {
-            display: true,
-            text: indicatorName
-          }
-        }
-    });
-
-  }
-
-  else {
-    let valueSet1 = []
-    let valueSet2 = []
-    let valueSet3 = []
-    let midValue = Math.round(labels.length / 3)
-
-    for(let i = 0, j = 0; i < values.length; i++){
-      if(i < midValue) {
-        valueSet1[i] = labels[i];
-      }
-
-      else if (i >= midValue && i < values.length - midValue) {
-        valueSet2[i-midValue] = labels[i];
-      }
-
-      else{
-        valueSet3[j++] = labels[i];
-      }
-
-  }
-
-  new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: dates,
-        datasets: [
-          {
-            label: labels[0],
-            backgroundColor: "#3e95cd",
-            data: valueSet1
-          }, {
-            label: labels[1],
-            backgroundColor: "#8e5ea2",
-            data: valueSet2
-          },
-          {
-            label: labels[2],
-            backgroundColor: "#8e5ea2",
-            data: valueSet3
-          }
-        ]
-      },
-      options: {
-        title: {
-          display: true,
-          text: indicatorName
-        }
-      }
-  });
-
-
 }
-
-}
-
-})

@@ -3,6 +3,7 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    overflow-x: hidden;
 }
 
 ::-moz-selection {
@@ -61,10 +62,6 @@ body {
  background-color: #A37774;
 }
 
-footer
- {
-    background: #484A47;
-}
 
 .title {
     color: white;
@@ -72,8 +69,8 @@ footer
 
 .flex-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  margin: 0 5%;
 }
 
 .white-card {
@@ -105,15 +102,6 @@ footer
     text-decoration: none;
     border-radius: 50%;
 }
-
-footer ul {
-  list-style-type: none;
-  display: inline-flex;
-}
-
-footer ul li {
-  padding-right: 10px;
-}
 .fa-twitter {
    background-color: #32CCFE;
 }
@@ -124,6 +112,35 @@ footer ul li {
    background-color: #070709;
 }
 
+#copyright {
+  padding: 5px;
+}
+
+footer {
+	padding: 2em 0 2em 0 ;
+	background: url("../img/footer.png") RGBA(0,0,0,0.9) fixed no-repeat;
+  color: #fff;
+}
+footer ul#icons, #copyright {
+  text-align: center;
+}
+
+footer ul#icons li {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: center;
+}
+
+footer a:hover {
+	color: #fff;
+}
+
+.footer-child {
+  max-width: 48%;
+  text-align: justify;
+  padding: 0 10% 0 0;
+}
+
 /* ================================
     Countries page
     ============================== */
@@ -131,8 +148,6 @@ footer ul li {
   max-height: 300px;
   width: 50%;
 }
-
-
 
 /* ==============
     MOBILE: Menu
