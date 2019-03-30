@@ -24,12 +24,10 @@ hr {
     padding: 0;
 }
 
-audio,
+
 canvas,
-iframe,
 img,
-svg,
-video {
+ {
     vertical-align: middle;
 }
 
@@ -37,10 +35,6 @@ fieldset {
     border: 0;
     margin: 0;
     padding: 0;
-}
-
-textarea {
-    resize: vertical;
 }
 
 .browserupgrade {
@@ -62,7 +56,6 @@ body {
     width: 90%;
     margin: 0 5%;
 }
-
 
 .header-container{
  background-color: #A37774;
@@ -93,6 +86,7 @@ footer
     transition: box-shadow .25s, -webkit-box-shadow .25s;
     border-radius: 2px
 }
+
 
 /* ===== Header and menu Styles =================================================== */
 .logo{
@@ -129,6 +123,15 @@ footer ul li {
 .fa-github {
    background-color: #070709;
 }
+
+/* ================================
+    Countries page
+    ============================== */
+.map {
+  max-height: 300px;
+  width: 50%;
+}
+
 
 
 /* ==============
