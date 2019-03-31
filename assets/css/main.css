@@ -201,11 +201,13 @@ nav a:hover {
 .ie7 .title {
     padding-top: 20px;
 }
+
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 480px) {
 
 /* ====================
     INTERMEDIATE: Menu
@@ -238,6 +240,11 @@ nav a:hover {
     .oldie nav a {
         margin: 0 0.7%;
     }
+    .footer-child {
+    max-width: 100%;
+    text-align: justify;
+    padding: 0 10% 0 0;
+}
 }
 
 @media only screen and (min-width: 768px) {
