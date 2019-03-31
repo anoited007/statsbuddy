@@ -21,11 +21,12 @@ $(function () {
     });
 
   }
-
 })
 
 /* Initialising Google Maps */
 function initMap() {
+  // fallbak if height turns 0
+  $(".map").css("height", "100%");
   var ghana = {
     lat: 8.0300284,
     lng: -1.0800271
@@ -52,11 +53,11 @@ function initMap() {
 
   var ukDetails = '<div id="map-content"><p id="location-title">Cim Finance</p> <i class="fa fa-map-marker" aria-hidden="true"></i> Manhattan Building, Edith Cavell St, Port Louis <br /> <i class="fa fa-globe" aria-hidden="true"></i><a href="http://cimfinance.mu">Visit Our Website </a></div>';
 
-  var ghWindow = new google.maps.ghWindow({
+  var ghWindow = new google.maps.InfoWindow({
     content: ghDetails
   });
 
-  var ghMarker = new google.maps.ghMarker({
+  var ghMarker = new google.maps.Marker({
     position: ghana,
     map: ghMap,
     title: "Ghana"

@@ -1,3 +1,8 @@
+/* ==============================
+    NOTICE
+  =============================*/
+/* !important is used sparingly to override styles applied by css from other plugins  */
+
 /* ===== Basic CSS Reset Styles =================================================== */
 html {
     color: #222;
@@ -60,6 +65,7 @@ body {
 
 .header-container{
  background-color: #A37774;
+ height: 60px;
 }
 
 
@@ -145,33 +151,73 @@ footer a:hover {
     Countries page
     ============================== */
 .map {
-  max-height: 300px;
+  margin-top: 2%;
+  height: 500px !important;
   width: 50%;
 }
+
+.country-name {
+  text-align: center;
+  font-size: 2em;
+  color: #fff;
+}
+
+.country-info p{
+  text-align: justify;
+  float: none;
+  margin: 2% 5%;
+  font-size: 1em;
+  width: 40vw;
+}
+
+/* .country {
+  height: 100% !important;
+  width: 100%;
+} */
+
+/*  =============================
+      Statistics page
+    =============================*/
+
+    /* Code for radio button from here: http://www.tipue.com/blog/radio-checkbox/ */
+    .stats-radio, input[type="checkbox"] {
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       display: inline-block;
+       position: relative;
+       background-color: #f1f1f1;
+       color: #666;
+       top: 10px;
+       height: 30px;
+       width: 30px;
+       border: 0;
+       border-radius: 50px;
+       cursor: pointer;
+       margin-right: 7px;
+       outline: none;
+  }
+  .stats-radio:checked::before, input[type="checkbox"]::before
+  {
+       position: absolute;
+       font: 13px/1 'Open Sans', sans-serif;
+       left: 11px;
+       top: 7px;
+       content: '\02143';
+       transform: rotate(40deg);
+  }
+  .stats-radio:hover, input[type="checkbox"]:hover
+  {
+       background-color: #5C6D70;
+  }
+  .form-radio:checked, input[type="checkbox"]:checked
+  {
+       background-color: #5C6D70;
+  }
 
 /* ==============
     MOBILE: Menu
    ============== */
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-nav a {
-    display: block;
-    /* margin-bottom: 10px; */
-    padding: 15px 0;
-
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-
-    color: white;
-    /* background: #e44d26; */
-}
-
 nav a:hover,
 nav a:visited {
     color: white;
@@ -213,30 +259,9 @@ nav a:hover {
     INTERMEDIATE: Menu
    ==================== */
 
-    nav a {
-        float: left;
-        /* width: 27%; */
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
-    }
-
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
-    }
-
 /* ========================
     INTERMEDIATE: IE Fixes
    ======================== */
-
-    nav ul li {
-        display: inline;
-    }
-
     .oldie nav a {
         margin: 0 0.7%;
     }
@@ -244,7 +269,21 @@ nav a:hover {
     max-width: 100%;
     text-align: justify;
     padding: 0 10% 0 0;
-}
+    }
+
+    .map {
+      margin-top: 2%;
+      height: 500px !important;
+      width: 100%;
+    }
+
+    .country-info p {
+      width: 100%;
+      margin: 5% 0;
+    }
+
+
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -268,10 +307,7 @@ nav a:hover {
         float: left;
     }
 
-    nav {
-        float: right;
-        width: 38%;
-    }
+
 
 /* ============
     WIDE: Main

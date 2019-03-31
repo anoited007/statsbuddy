@@ -13,11 +13,13 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="stylesheet" href="assets/css/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/menu.css">
     <link rel="stylesheet" href="assets/css/main.css" />
 
 
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/graph.js"></script>
@@ -27,8 +29,7 @@
   <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <b>outdated</b> browser. Please upgrade your browser to improve your experience.</p>
   <![endif]-->
-    <div class="header-container">
-    </div>
+    <div class="header-container"> </div>
 
     <div id="stats-bg">
       <img src="assets/img/stats-bg.png"  alt="Particles background image">
@@ -37,19 +38,19 @@
     <form>
       <fieldset>
         <legend> Choose the dataset to disply statistics for</legend>
-        <input type="radio" name="dataset" id="internet-penetration" value="internet-penetration" />
+        <input type="radio" class="stats-radio" name="dataset" id="internet-penetration" value="internet-penetration" />
         <label for="internet-penetration">Internet Penetration</label>
 
-        <input type="radio" name="dataset" id="cellular-subscription" value="cellular-subscription" checked/>
+        <input type="radio" class="stats-radio" name="dataset" id="cellular-subscription" value="cellular-subscription" checked/>
         <label for="cellular-subscription">Cellular Subscription</label>
 
-        <input type="radio" name="dataset" id="fixed-broadband" value="fixed-broadband"/>
+        <input type="radio" class="stats-radio" name="dataset" id="fixed-broadband" value="fixed-broadband"/>
         <label for="fixed-broadband">Fixed Broadband</label>
 
-        <input type="radio" name="dataset" id="secure-server" value="secure-server"/>
+        <input type="radio" class="stats-radio" name="dataset" id="secure-server" value="secure-server"/>
         <label for="secure-server">Seure Servers</label>
 
-        <input type="radio" name="dataset" id="personal-computers" value="personal-computers"/>
+        <input type="radio" class="stats-radio" name="dataset" id="personal-computers" value="personal-computers"/>
         <label for="personal-computers">Personal Computers</label>
 
       </fieldset>
