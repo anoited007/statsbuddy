@@ -1,0 +1,33 @@
+{
+
+  "indicator": {
+        "id": "SP.POP.TOTL",
+        "value": "Population, total"
+    },
+
+    "GBR": {
+        "date": "2017",
+        "value": 66022273,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+  },
+
+  "GH": {
+           "date": "2017",
+           "value": 28833629,
+           "unit": "",
+           "obs_status": "",
+           "decimal": 0
+  },
+
+  "MUS": {
+            "date": "2017",
+            "value": 1264613,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+  }
+
+
+}

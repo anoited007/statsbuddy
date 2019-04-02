@@ -1,7 +1,16 @@
-(function(){
-  $('.menu-push').click(function(){
-    $('header').toggleClass('active')
-    $('.intro').toggleClass('active')
-    $('#menu-push').toggleClass('active')
-  })
-})()
+$(document).ready(function(){
+
+    (function($) {
+
+        $('#header-icon').click(function(e){
+            e.preventDefault();
+            $('body').toggleClass('with-sidebar');
+        });
+
+    $('#site-cache').click(function(e){
+      $('body').removeClass('with-sidebar');
+    });
+
+    })(jQuery);
+
+});

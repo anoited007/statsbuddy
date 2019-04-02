@@ -1,0 +1,33 @@
+{
+
+            "indicator": {
+                "id": "EN.POP.DNST",
+                "value": "Population density (people per sq. km of land area)"
+            },
+
+           "GBR":{
+             "date": "2017",
+             "value": 272.898247426942,
+             "unit": "",
+             "obs_status": "",
+             "decimal": 0
+           },
+
+           "GHA": {
+           "date": "2017",
+           "value": 126.718946119364,
+           "unit": "",
+           "obs_status": "",
+           "decimal": 0
+         },
+
+            "MUS":{
+             "date": "2018",
+             "value": null,
+             "unit": "",
+             "obs_status": "",
+             "decimal": 0
+        }
+
+
+}

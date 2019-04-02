@@ -25,61 +25,65 @@
     <script src="assets/js/graph.js"></script>
 </head>
 
-<body>
-  <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <b>outdated</b> browser. Please upgrade your browser to improve your experience.</p>
-  <![endif]-->
-    <div class="header-container"> </div>
+<body class="site-container">
+  <div class="site-pusher">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <b>outdated</b> browser. Please upgrade your browser to improve your experience.</p>
+    <![endif]-->
+      <div class="header-container"> </div>
 
-    <div id="stats-bg">
-      <img src="assets/img/stats-bg.png"  alt="Particles background image">
-    </div>
+      <div id="stats-bg">
+        <img src="assets/img/stats-bg.png"  alt="Particles background image">
+      </div>
 
-    <form>
-      <fieldset>
-        <legend> Choose the dataset to disply statistics for</legend>
-        <input type="radio" class="stats-radio" name="dataset" id="internet-penetration" value="internet-penetration" />
-        <label for="internet-penetration">Internet Penetration</label>
+      <form>
+        <fieldset>
+          <legend> Choose the dataset to disply statistics for</legend>
+          <input type="radio" class="stats-radio" name="dataset" id="internet-penetration" value="internet-penetration" />
+          <label for="internet-penetration">Internet Penetration</label>
 
-        <input type="radio" class="stats-radio" name="dataset" id="cellular-subscription" value="cellular-subscription" checked/>
-        <label for="cellular-subscription">Cellular Subscription</label>
+          <input type="radio" class="stats-radio" name="dataset" id="cellular-subscription" value="cellular-subscription" checked/>
+          <label for="cellular-subscription">Cellular Subscription</label>
 
-        <input type="radio" class="stats-radio" name="dataset" id="fixed-broadband" value="fixed-broadband"/>
-        <label for="fixed-broadband">Fixed Broadband</label>
+          <input type="radio" class="stats-radio" name="dataset" id="fixed-broadband" value="fixed-broadband"/>
+          <label for="fixed-broadband">Fixed Broadband</label>
 
-        <input type="radio" class="stats-radio" name="dataset" id="secure-server" value="secure-server"/>
-        <label for="secure-server">Seure Servers</label>
+          <input type="radio" class="stats-radio" name="dataset" id="secure-server" value="secure-server"/>
+          <label for="secure-server">Seure Servers</label>
 
-        <input type="radio" class="stats-radio" name="dataset" id="personal-computers" value="personal-computers"/>
-        <label for="personal-computers">Personal Computers</label>
+          <input type="radio" class="stats-radio" name="dataset" id="personal-computers" value="personal-computers"/>
+          <label for="personal-computers">Personal Computers</label>
 
-      </fieldset>
+        </fieldset>
 
-      <fieldset>
-        <legend> Choose the countries to display statistics for</legend>
-        <input type="checkbox" name="country" id="ghana" value="ghana" data-code="GHA" checked/>
-        <label for="ghana">Ghana</label>
+        <fieldset>
+          <legend> Choose the countries to display statistics for</legend>
+          <input type="checkbox" name="country" id="ghana" value="ghana" data-code="GHA" checked/>
+          <label for="ghana">Ghana</label>
 
-        <input type="checkbox" name="country" id="mauritius" value="mauritius" data-code="MUS"/>
-        <label for="mauritius">Mauritius</label>
+          <input type="checkbox" name="country" id="mauritius" value="mauritius" data-code="MUS"/>
+          <label for="mauritius">Mauritius</label>
 
-        <input type="checkbox" name="country" id="united-kingdom" value="united-kingdom" data-code="GBR"/>
-        <label for="united-kingdom">United Kingdom</label>
+          <input type="checkbox" name="country" id="united-kingdom" value="united-kingdom" data-code="GBR"/>
+          <label for="united-kingdom">United Kingdom</label>
 
-      </fieldset>
+        </fieldset>
 
-    </form>
+      </form>
 
-<div id="chart-container">
-  <canvas id="chart" aria-label="chart made from data from worldbank" role="img">
-    <p> Your browser does not support the canvas element. Please consider upgrading your browser. </p>
+  <div id="chart-container">
+    <canvas id="chart" aria-label="chart made from data from worldbank" role="img">
+      <p> Your browser does not support the canvas element. Please consider upgrading your browser. </p>
 
-  </canvas>
+    </canvas>
 
-</div>
+  </div>
 
-    <footer>
-    </footer>
+      <footer>
+      </footer>
+
+  </div>
+
 </body>
 
 </html>

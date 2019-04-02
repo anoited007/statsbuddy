@@ -9,6 +9,7 @@ $.get("assets/templates/footer.html", function(data, status){
    $("footer").html(data);
 })
 
+
 $(function () {
   if (document.querySelector(".mln_sec")) {
     /* Initialiaze scrolling plugin */
@@ -19,8 +20,8 @@ $(function () {
       'full' : true,
       'itens' : ['Ghana', 'Mauritius', 'United Kingdom']
     });
-
   }
+
 })
 
 /* Initialising Google Maps */
@@ -63,6 +64,6 @@ function initMap() {
     title: "Ghana"
   });
   ghMarker.addListener("click", function() {
-    ghWindow.open(ghMap, marker);
+    ghWindow.open(ghMap, ghMarker);
   });
 }

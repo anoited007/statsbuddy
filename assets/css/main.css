@@ -30,7 +30,6 @@ hr {
     padding: 0;
 }
 
-
 canvas,
 img,
  {
@@ -48,6 +47,18 @@ fieldset {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+.btn-country {
+  width: 30px;
+  padding: 10px;
+  background: #484A47;
+  border-radius: 1em;
+  color: #fff;
+}
+
+.btn-country :hover {
+  background-color: #A37774;
 }
 
 
@@ -91,9 +102,15 @@ body {
 }
 
 
-/* ===== Header and menu Styles =================================================== */
+/* ===== Header and menu Styles =================================== */
 .logo{
   max-width: 200px;
+  height: auto;
+}
+
+/* ===== Header and menu Styles ==================================== */
+#intro-img img{
+  max-width: 40vw;
   height: auto;
 }
 
@@ -146,6 +163,32 @@ footer a:hover {
   text-align: justify;
   padding: 0 10% 0 0;
 }
+
+/* ================================
+     Homepage
+    ============================== */
+    #intro-text {
+      max-width: 40vw;
+      margin-right: 5vw;
+      text-align: justify;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: 150px 150px 150px;
+      grid-gap: 2%;
+    }
+
+    .country-image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .country-image > img {
+      width: 100%;
+      height: auto;
+    }
 
 /* ================================
     Countries page
@@ -271,16 +314,22 @@ nav a:hover {
     padding: 0 10% 0 0;
     }
 
+    .footer-child > p{
+      margin-bottom: 20px;
+    }
+
     .map {
       margin-top: 2%;
       height: 500px !important;
       width: 100%;
     }
 
-    .country-info p {
+    .country-info p, #info-text {
       width: 100%;
       margin: 5% 0;
     }
+
+
 
 
 

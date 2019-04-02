@@ -1,0 +1,32 @@
+{
+          "indicator": {
+                "id": "NY.GDP.MKTP.CD",
+                "value": "GDP (current US$)"
+            },
+
+          "GBR": {
+           "date": "2017",
+           "value": 2622433959604.16,
+           "unit": "",
+           "obs_status": "",
+           "decimal": 0
+         },
+
+         "GHA": {
+           "date": "2017",
+            "value": 58996776237.7603,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+         },
+
+         "MUR":{
+           "countryiso3code": "MUS",
+            "date": "2017",
+            "value": 13266427697.2513,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+         }
+         
+}

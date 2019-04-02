@@ -20,6 +20,7 @@
 
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/jquery.square.min.js"></script>
     <script src="assets/js/vendor/menu.js"></script>
     <script src="assets/js/vendor/scroll.js"></script>
     <script src="assets/js/main.js"></script>
@@ -30,12 +31,8 @@
         <p class="browserupgrade">You are using an <b>outdated</b> browser. Please upgrade your browser to improve your experience.</p>
     <![endif]-->
     <div class="header-container">
-      
-    </div>
 
-    <div class="main-container">
-        <div class="main wrapper clearfix">
-          <main>
+    </div>
 
             <div id="hero-image">
               <!-- <img src="https://picsum.photos/600/600/?random" alt="Random Header Image"/> -->
@@ -46,31 +43,75 @@
             </div>
 
             <section>
-              <h2> Introduction </h2>
-              <div id="introduction">
+              <h2 class="title"> Introduction </h2>
+              <div class="flex-container">
                 <div id="intro-text">
-                  Finding information on digital infrastructure of various countries can be a tedious task. This website has been put together to help people seeking such data and statistics. However,
-            the information on this website relate to just three countries namely: Ghana, Mauritius and United Kingdom. If you are planning on visitin any of these three countries, feel free to explore the various information that is relevant to you. Whatever you aim is, we hope this website will be useful to you and help you accomplish it.
+                  <p>
+                    Finding information on digital infrastructure of various countries can be a tedious task. This website has been put together to help people seeking such data and statistics. However,
+                    the information on this website relate to just three countries namely: Ghana, Mauritius and United Kingdom. If you are planning on visitin any of these three countries, feel free to explore the various information that is relevant to you. Whatever you aim is, we hope this website will be useful to you and help you accomplish it.
+                  </p>
                 </div>
+
 
                 <div id="intro-img">
                   <img src="assets/img/intro.jpeg" alt="Man with a floater" />
                </div>
+              </div>
 
-             </div>
              </section>
 
              <section>
-               <h2> Countries </h2>
-             </section>
-          </main>
 
-        </div> <!-- #main -->
-    </div> <!-- #main-container -->
-<div class="footer-container">
+               <h2> Countries </h2>
+
+               <div class="grid-layout">
+                 <div class="white-card">
+                   <div class="grid-item">
+                     <h3 class="index-country"> Ghana</h3>
+                     <figure class="country-image">
+                       <img src="assets/img/ghana.jpeg" alt="A picture showing a part of Ghana">
+                     </figure>
+                     <p>The Republic of Ghana, formerly the Gold Coast, is a West African country lying on the Gulf of Guinea.</p>
+                     <a href="countries.html#ghana" class="btn-country"> Learn More</a>
+
+                   </div>
+
+                 </div>
+
+                 <div class="white-card">
+                   <div class="grid-item">
+                     <h3 class="index-country"> Mauritius</h3>
+                     <figure class="country-image">
+                       <img src="assets/img/mauritius.jpg" alt="A picture showing a part of Mauritius">
+                     </figure>
+                     <p>The Republic of Mauritius, an island country in the Indian Ocean, lies east of Madagascar and the south-east African coast.</p>
+                     <a href="countries.html#mauritius" class="btn-country"> Learn More</a>
+
+                   </div>
+
+                 </div>
+
+                 <div class="white-card">
+                   <div class="grid-item">
+                     <h3 class="index-country"> United Kingdom</h3>
+                     <figure class="country-image">
+                       <img src="assets/img/uk.jpeg" alt="A picture showing a part of United Kingdom">
+                     </figure>
+                     <p>The United Kingdom of Great Britain and Northern Ireland (UK) consists of a group of islands off the western coast of Europe. The largest, Great Britain, comprises three countries: England, Scotland and Wales. Ireland, to the west, consists of the UK’s province of Northern Ireland and the Irish Republic. .</p>
+                     <a href="countries.html#uk" class="btn-country"> Learn More</a>
+                   </div>
+
+                 </div>
+
+               </div>
+             </section>
+
+
+
+
 <footer>
 </footer>
-</div>
+
 </body>
 
 </html>

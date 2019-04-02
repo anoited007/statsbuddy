@@ -1,0 +1,31 @@
+{
+          "indicator": {
+
+            },
+
+          "GBR": {
+            "date": "2017",
+            "value": 39753.2438934915,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+         },
+
+         "GHA": {
+           "date": "2017",
+            "value": 4091.90705844952,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+         },
+
+         "MUR":{
+           "date": "2017",
+            "value": 20320.3702960878,
+            "unit": "",
+            "obs_status": "",
+            "decimal": 0
+
+         }
+
+}
