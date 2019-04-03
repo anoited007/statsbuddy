@@ -88,6 +88,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: 0 5%;
+  width: 100vw;
 }
 
 .white-card {
@@ -101,18 +102,39 @@ body {
     border-radius: 2px
 }
 
+#menu_dir > ul > li {
+  color: #fff !important;
+  font-weight: bolder;
 
-/* ===== Header and menu Styles =================================== */
-.logo{
-  max-width: 200px;
-  height: auto;
 }
 
-/* ===== Header and menu Styles ==================================== */
-#intro-img img{
-  max-width: 40vw;
-  height: auto;
+.row:before,
+.row:after {
+    content:"";
+    display:table;
 }
+.row:after {
+    clear:both;
+}
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child {
+  margin-left: 0;
+}
+
+.grid-2 {
+  width: 49.2%
+}
+
+.grid-3 {
+  width: 33%
+}
+
 
 /* ===== Footer =================================================== */
 .fa {
@@ -164,19 +186,39 @@ footer a:hover {
   padding: 0 10% 0 0;
 }
 
+footer h3 {
+  font-size: 1.6em;
+  font-weight: bolder;
+  padding: 1%;
+}
+
 /* ================================
      Homepage
     ============================== */
+    #hero-image {
+    background-image: linear-gradient(rgba(72, 74, 71, 1), rgba(163, 119, 116, 1)), url("https://picsum.photos/900/900/?random");
+     color: #fff;
+     width: 100vw;
+     height: 60vh;
+    }
+
     #intro-text {
       max-width: 40vw;
       margin-right: 5vw;
       text-align: justify;
     }
 
+    #intro-img > img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin-right: 2%;
+    }
+
     .grid-layout {
       display: grid;
-      grid-template-columns: 33% 33% 33%;
-      grid-template-rows: 150px 150px 150px;
+      grid-template-rows: auto;
+      grid-template-columns: auto;
       grid-gap: 2%;
     }
 
@@ -227,16 +269,20 @@ footer a:hover {
   text-align: center;
 }
 
-/* .country {
-  height: 100% !important;
-  width: 100%;
-} */
+
 
 /*  =============================
       Statistics page
     =============================*/
+    #stats-bg {
 
-    /* Code for radio button from here: http://www.tipue.com/blog/radio-checkbox/ */
+      background-image: linear-gradient(rgba(100, 10, 39, 0.7), rgba(15, 15, 39, 0.9)), url("../img/stats-bg.png");
+      height: auto;
+      max-height: 200px;
+      width: 100%;
+    }
+
+    /* Code for styling radio button from here: http://www.tipue.com/blog/radio-checkbox/ */
     .stats-radio, input[type="checkbox"] {
        -webkit-appearance: none;
        -moz-appearance: none;
@@ -272,30 +318,45 @@ footer a:hover {
        background-color: #5C6D70;
   }
 
+  form >fieldset {
+    display: block;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 1% 0 1%;
+    max-width: 30vw;
+  }
+
 /* ==============
     MOBILE: Menu
    ============== */
-nav a:hover,
-nav a:visited {
-    color: white;
-}
+   nav ul {
+       margin: 0;
+       padding: 0;
+       list-style-type: none;
+   }
 
-nav a:hover {
-    text-decoration: underline;
-}
+   nav a {
+       display: block;
+       margin-bottom: 10px;
+       padding: 15px 0;
 
-/* ==============
-    MOBILE: Main
-   ============== */
+       text-align: center;
+       text-decoration: none;
+       font-weight: bold;
 
-.main {
-    padding: 30px 0;
-}
+       color: white;
+       background: #e44d26;
+   }
 
-.footer-container footer {
-    color: white;
-    padding: 20px 0;
-}
+   nav a:hover,
+   nav a:visited {
+       color: white;
+   }
+
+   nav a:hover {
+       text-decoration: underline;
+  }
 
 /* ===============
     ALL: IE Fixes
@@ -309,19 +370,42 @@ nav a:hover {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media only screen and (min-width: 480px) {
+  nav a {
+     float: left;
+     width: 27%;
+     margin: 0 1.7%;
+     padding: 25px 2%;
+     margin-bottom: 0;
+ }
+
+ nav li:first-child a {
+     margin-left: 0;
+ }
+
+ nav li:last-child a {
+     margin-right: 0;
+ }
+
+ nav ul li {
+       display: inline;
+   }
+
+   #hero-image {
+   background-image: linear-gradient(rgba(100, 10, 39, 0.7), rgba(15, 15, 39, 0.9)), url("https://picsum.photos/900/900/?random");
+    color: #fff;
+    width: 100vw;
+    height: 45vh;
+   }
+
+}
 
 @media only screen and (max-width: 480px) {
 
-/* ====================
-    INTERMEDIATE: Menu
-   ==================== */
+  .col {
+    margin: 0;
+  }
 
-/* ========================
-    INTERMEDIATE: IE Fixes
-   ======================== */
-    .oldie nav a {
-        margin: 0 0.7%;
-    }
     .footer-child {
     max-width: 100%;
     text-align: justify;
@@ -341,16 +425,19 @@ nav a:hover {
     .country-info p, #info-text {
       width: 100%;
       margin: 5% 0;
+      padding: 1em;
+    }
+
+    #hero-image {
+    background-image: linear-gradient(rgba(100, 10, 39, 0.7), rgba(15, 15, 39, 0.9)), url("https://picsum.photos/900/900/?random");
+     color: #fff;
+     width: 100vw;
+     height: 40vh;
     }
 
 }
 
 @media only screen and (min-width: 768px) {
-
-/* ====================
-    WIDE: CSS3 Effects
-   ==================== */
-
     .header-container,
     .main  {
         -webkit-box-shadow: 0 5px 10px #aaa;
@@ -358,31 +445,13 @@ nav a:hover {
                 box-shadow: 0 5px 10px #aaa;
     }
 
-/* ============
-    WIDE: Menu
-   ============ */
-
     .title {
         float: left;
     }
 
-
-
-/* ============
-    WIDE: Main
-   ============ */
-
-    .main {
-        float: left;
-        width: 57%;
-    }
   }
 
 @media only screen and (min-width: 1140px) {
-
-/* ===============
-    Maximal Width
-   =============== */
 
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
@@ -402,36 +471,6 @@ nav a:hover {
    Helper classes
    ========================================================================== */
 
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -441,87 +480,3 @@ nav a:hover {
 .clearfix:after {
     clear: both;
 }
-
-.clearfix {
-    *zoom: 1;
-}
-
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-
-@media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-}
-
-/* ========================================
-      Homepage
-   ======================================== */
-   #hero-image {
-    /* color: #fff; */
-    /* background: url("https://picsum.photos/900/900/?random") */
-  }
-  /* ========================================
-        Statistics
-     ======================================== */
-  #stats-bg {
-    background: #5C6D70;
-    max-height: 100px;
-    width: 100%;
-  }

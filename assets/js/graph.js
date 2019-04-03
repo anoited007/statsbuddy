@@ -125,6 +125,9 @@ function queryData() {
 }
 
 function drawGraph(labels, dates, values, indicatorName) {
+  // Set chart filling to false
+  Chart.defaults.global.elements.line.fill = false;
+  
   let canvas = $("#chart");
 
   let element = $("input[type=radio]").filter(function(){return this.checked}).attr("value");
@@ -144,11 +147,11 @@ function drawGraph(labels, dates, values, indicatorName) {
             ]
           },
           options: {
-            title: {
-              display: true,
-              text: indicatorName
+              title: {
+                display: true,
+                text: indicatorName
+              }
             }
-          }
         })
       }
 

@@ -40,9 +40,9 @@ function initMap() {
 
   $.when(totalPopulation, populationDensity, gdp, capita).done(function (total,density,gross,perCapita) {
 
-    ghPopulation = total[0]["GHA"].value; console.log(ghPopulation);
-    muPopulation = total[0]["MUS"].value; console.log(muPopulation);
-    ukPopulation = total[0]["GBR"].value; console.log(ukPopulation);
+    ghPopulation = total[0]["GHA"].value;
+    muPopulation = total[0]["MUS"].value;
+    ukPopulation = total[0]["GBR"].value;
 
     ghDensity = Math.round(density[0]["GHA"].value);
     muDensity = Math.round(density[0]["MUS"].value);
