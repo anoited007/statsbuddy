@@ -84,7 +84,7 @@ function queryData() {
   $.ajax({
     //let url = baseUrl+"countries/"+country_code+"indicators/"+indicator+"?date=2013:2018&format=json"
     //url:"https://api.worldbank.org/v2/country/GBR;GHA/indicators/IT.CEL.SETS.P2?date=2013:2018&format=json",
-    url: baseUrl.concat("countries/",country_code,"/indicators/",indicator,"?date=2013:2018&format=json"),
+    url: baseUrl.concat("countries/","GHA;MUS;GBR","/indicators/",indicator,"?date=2013:2018&format=json"),
     crossDomain: true
   }).done(function(data){
     let indicatorName;
@@ -118,6 +118,7 @@ function queryData() {
   })
 
   }
+  console.log("before calling drawGraph");
    drawGraph(labels, dates, values, indicatorName);
 
   })
@@ -127,81 +128,17 @@ function queryData() {
 function drawGraph(labels, dates, values, indicatorName) {
   // Set chart filling to false
   Chart.defaults.global.elements.line.fill = false;
-  
+
   let canvas = $("#chart");
 
   let element = $("input[type=radio]").filter(function(){return this.checked}).attr("value");
 
   if(element === "secure-server" || element === "personal-computers"){
 
-      if(labels.length == 1){
-        new Chart(canvas, {
-          type: "bar",
-          data: {
-            labels: dates,
-            datasets: [{
-              label: labels[0],
-              data: values
-            }
-
-            ]
-          },
-          options: {
-              title: {
-                display: true,
-                text: indicatorName
-              }
-            }
-        })
-      }
-
-      else if (labels.length == 2){
-        let valueSet1 = []
-        let valueSet2 = []
-        let midValue = Math.round(labels.length / 2)
-
-        for(let i = 0, j = 0; i < values.length; i++){
-          if(i < midValue){
-            valueSet1[i] = labels[i];
-          }
-          else{
-            valueSet2[j++] = labels[i];
-          }
-          console.log(valueSet1);
-          console.log(valueSet2);
-
-        }
-        new Chart(canvas, {
-            type: 'bar',
-            data: {
-              labels: dates,
-              datasets: [
-                {
-                  label: labels[0],
-                  backgroundColor: "#3e95cd",
-                  data: valueSet1
-                }, {
-                  label: labels[1],
-                  backgroundColor: "#8e5ea2",
-                  data: valueSet2
-                }
-              ]
-            },
-            options: {
-              title: {
-                display: true,
-                text: indicatorName
-              }
-            }
-        });
-
-      }
-
-      else {
         let valueSet1 = []
         let valueSet2 = []
         let valueSet3 = []
-        let midValue = Math.round(labels.length / 3)
+        let midValue = Math.round(values.length / 3)
 
         for(let i = 0, j = 0; i < values.length; i++){
           if(i < midValue) {
@@ -212,12 +149,15 @@ function drawGraph(labels, dates, values, indicatorName) {
             valueSet2[i-midValue] = labels[i];
           }
 
+
           else{
             valueSet3[j++] = labels[i];
           }
 
       }
-
+      console.log(valueSet1);
+      console.log(valueSet2);
+      console.log(valueSet3);
       new Chart(canvas, {
           type: 'bar',
           data: {
@@ -248,89 +188,30 @@ function drawGraph(labels, dates, values, indicatorName) {
       });
 
 
-    }
-
   }
 
   else {
 
-    if(labels.length == 1){
-      new Chart(canvas, {
-        type: "line",
-        data: {
-          labels: dates,
-          datasets: [{
-            label: labels[0],
-            data: values
-          }
-
-          ]
-        }
-      })
-    }
-
-    else if (labels.length == 2){
-      let valueSet1 = []
-      let valueSet2 = []
-      let midValue = Math.round(labels.length / 2)
-
-      for(let i = 0, j = 0; i < values.length; i++){
-        if(i < midValue){
-          valueSet1[i] = labels[i];
-        }
-        else{
-          valueSet2[j++] = labels[i];
-        }
-        console.log(valueSet1);
-        console.log(valueSet2);
-
-      }
-      new Chart(canvas, {
-          type: 'line',
-          data: {
-            labels: dates,
-            datasets: [
-              {
-                label: labels[0],
-                backgroundColor: "#3e95cd",
-                data: valueSet1
-              }, {
-                label: labels[1],
-                backgroundColor: "#8e5ea2",
-                data: valueSet2
-              }
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-              text: indicatorName
-            }
-          }
-      });
-
-    }
-
-    else {
       let valueSet1 = []
       let valueSet2 = []
       let valueSet3 = []
-      let midValue = Math.round(labels.length / 3)
+      let midValue = Math.round(values.length / 3)
 
       for(let i = 0, j = 0; i < values.length; i++){
         if(i < midValue) {
-          valueSet1[i] = labels[i];
+          valueSet1[i] = values[i];
         }
 
         else if (i >= midValue && i < values.length - midValue) {
-          valueSet2[i-midValue] = labels[i];
+          valueSet2[i-midValue] = values[i];
         }
 
         else{
-          valueSet3[j++] = labels[i];
+          valueSet3[j++] = values[i];
         }
 
     }
+    console.log(valueSet1);
 
     new Chart(canvas, {
         type: 'line',
@@ -360,9 +241,6 @@ function drawGraph(labels, dates, values, indicatorName) {
           }
         }
     });
-
-
-  }
 
   }
 

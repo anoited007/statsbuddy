@@ -11,6 +11,10 @@ $.get("assets/templates/footer.html", function(data, status){
 
 
 $(function () {
+$("#toggle").on("click", function () {
+  $("header ul").css("display","block");
+})
+
   if (document.querySelector(".mln_sec")) {
     /* Initialiaze scrolling plugin */
     $('body').mln_full({
