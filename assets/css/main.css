@@ -213,6 +213,20 @@ footer a:hover {
   width: 40vw;
 }
 
+.map-content > p {
+  color: #000;
+  margin: 0;
+  font-size: 1em;
+  width: 100%;
+  line-height: 1.9em;
+}
+
+.map-content p > span {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 /* .country {
   height: 100% !important;
   width: 100%;
@@ -329,10 +343,6 @@ nav a:hover {
       margin: 5% 0;
     }
 
-
-
-
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -378,6 +388,14 @@ nav a:hover {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
     }
+}
+
+@media only screen and (max-width: 1024px) {
+ section#ghana, section#mauritius, section#uk {
+   height: 100% !important;
+    margin: 1em 0;
+ }
+
 }
 
 /* ==========================================================================

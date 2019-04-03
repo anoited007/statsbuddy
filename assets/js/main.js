@@ -26,8 +26,37 @@ $(function () {
 
 /* Initialising Google Maps */
 function initMap() {
-  // fallbak if height turns 0
-  $(".map").css("height", "100%");
+  let totalPopulation = $.get("assets/json/population.json");
+  let populationDensity = $.get("assets/json/population-density.json");
+  let gdp = $.get("assets/json/gdp.json");
+  let capita = $.get("assets/json/gdp-per-capita.json");
+
+// Declaring function-wide variables
+  var ghPopulation, muPopulation,ukPopulation;
+  var ghDensity, muDensity, ukDensity;
+  var ghGdp, muGdp, ukGdp;
+  var ghCapita, muCapita, ukCapita;
+  var formatter = new Intl.NumberFormat(); // Using ES6 number formatter to make number easily readable
+
+  $.when(totalPopulation, populationDensity, gdp, capita).done(function (total,density,gross,perCapita) {
+
+    ghPopulation = total[0]["GHA"].value; console.log(ghPopulation);
+    muPopulation = total[0]["MUS"].value; console.log(muPopulation);
+    ukPopulation = total[0]["GBR"].value; console.log(ukPopulation);
+
+    ghDensity = Math.round(density[0]["GHA"].value);
+    muDensity = Math.round(density[0]["MUS"].value);
+    ukDensity = Math.round(density[0]["GBR"].value);
+
+    ghGdp = Math.round(gross[0]["GHA"].value);
+    muGdp = Math.round(gross[0]["MUS"].value);
+    ukGdp = Math.round(gross[0]["GBR"].value);
+
+    ghCapita = Math.round(perCapita[0]["GHA"].value);
+    muCapita = Math.round(perCapita[0]["MUS"].value);
+    ukCapita = Math.round(perCapita[0]["GBR"].value);
+  })
+
   var ghana = {
     lat: 8.0300284,
     lng: -1.0800271
@@ -43,27 +72,85 @@ function initMap() {
     lng: -3.2765753
   };
 
-  var ghMap = new google.maps.Map(document.getElementById("ghana"), {
-    zoom: 15,
+  //var ghContainer =
+  var ghMap = new google.maps.Map(document.querySelector("#ghana div > .map"), {
+    zoom: 6,
     center: ghana
   });
-/* Using single quotes to escape the double quotes */
-  var ghDetails = '<div id="map-content"><p id="location-title">Cim Finance</p> <i class="fa fa-map-marker" aria-hidden="true"></i> Manhattan Building, Edith Cavell St, Port Louis <br /> <i class="fa fa-globe" aria-hidden="true"></i><a href="http://cimfinance.mu">Visit Our Website </a></div>';
 
-  var murDetails = '<div id="map-content"><p id="location-title">Cim Finance</p> <i class="fa fa-map-marker" aria-hidden="true"></i> Manhattan Building, Edith Cavell St, Port Louis <br /> <i class="fa fa-globe" aria-hidden="true"></i><a href="http://cimfinance.mu">Visit Our Website </a></div>';
+  var muMap = new google.maps.Map(document.querySelector("#mauritius div > .map"),{
+    zoom: 10,
+    center: mauritius
+  })
 
-  var ukDetails = '<div id="map-content"><p id="location-title">Cim Finance</p> <i class="fa fa-map-marker" aria-hidden="true"></i> Manhattan Building, Edith Cavell St, Port Louis <br /> <i class="fa fa-globe" aria-hidden="true"></i><a href="http://cimfinance.mu">Visit Our Website </a></div>';
-
-  var ghWindow = new google.maps.InfoWindow({
-    content: ghDetails
-  });
+  var ukMap = new google.maps.Map(document.querySelector("#uk div > .map"),{
+    zoom: 5,
+    center: uk
+  })
 
   var ghMarker = new google.maps.Marker({
     position: ghana,
     map: ghMap,
     title: "Ghana"
   });
+
+  var muMarker = new google.maps.Marker({
+    position: mauritius,
+    map: muMap,
+    title: "Mauritius"
+  });
+
+  var ukMarker = new google.maps.Marker({
+    position: uk,
+    map: ukMap,
+    title: "United Kingdom"
+  });
+
+
   ghMarker.addListener("click", function() {
+
+    var ghDetails = '<div class="map-content"><p><span class="map-title">Ghana</span><br/>'+
+                    'Total Population(2017): ' +formatter.format(ghPopulation) + '<br/>' +
+                    'Population Density(2017): ' +formatter.format(ghDensity) + '<br/>'+
+                    'GDP(2017): ' +formatter.format(ghGdp) +'<br/>' +
+                    'GDP Per Capita (2017): ' +formatter.format(ghCapita) +'<br/>' +
+                    '</p></div>';
+
+    var ghWindow = new google.maps.InfoWindow({
+    content: ghDetails
+    });
+
     ghWindow.open(ghMap, ghMarker);
   });
+
+  muMarker.addListener("click", function() {
+    var murDetails = '<div class="map-content"><p><span class="map-title">Mauritius</span><br/>'+
+                    'Total Population(2017): ' +formatter.format(muPopulation) + '<br/>' +
+                    'Population Density(2017): ' +formatter.format(muDensity) + '<br/>'+
+                    'GDP(2017): ' +formatter.format(muGdp) +'<br/>' +
+                    'GDP Per Capita (2017): ' +formatter.format(muCapita) +'<br/>' +
+                    '</p></div>';
+
+    var muWindow = new google.maps.InfoWindow({
+      content: murDetails
+    });
+
+    muWindow.open(ghMap, muMarker);
+  });
+
+  ukMarker.addListener("click", function() {
+    var ukDetails = '<div class="map-content"><p><span class="map-title">United Kingdom</span><br/>'+
+                    'Total Population(2017): ' +formatter.format(ukPopulation) + '<br/>' +
+                    'Population Density(2017): ' +formatter.format(ukDensity) + '<br/>'+
+                    'GDP(2017): ' +formatter.format(ukGdp) +'<br/>' +
+                    'GDP Per Capita (2017): ' +formatter.format(ukCapita) +'<br/>' +
+                    '</p></div>';
+
+    var ukWindow = new google.maps.InfoWindow({
+      content: ukDetails
+    });
+
+    ukWindow.open(ukMap, ukMarker);
+  });
+
 }

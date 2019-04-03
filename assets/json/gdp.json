@@ -20,13 +20,12 @@
             "decimal": 0
          },
 
-         "MUR":{
-           "countryiso3code": "MUS",
+         "MUS":{
             "date": "2017",
             "value": 13266427697.2513,
             "unit": "",
             "obs_status": "",
             "decimal": 0
          }
-         
+
 }
