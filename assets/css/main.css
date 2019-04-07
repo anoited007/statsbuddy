@@ -56,8 +56,8 @@ body {
     font: 16px/26px Helvetica, Helvetica Neue, Arial;
 }
 
-.toggle {
-  display: none;
+#toggle {
+  visibility: hidden;
 }
 
 .wrapper {
@@ -114,6 +114,30 @@ header nav ul li > a {
     border-radius: 20px;
     float: right;
     margin: 1%;
+}
+
+#toggle {
+    color: #fff;
+    position: absolute;
+    top: 3%;
+    left: 25px;
+    cursor: pointer;
+}
+
+.responsive {
+  display: block;
+}
+
+nav.responsive > {
+  position: fixed;
+  height: auto;
+  padding: 0;
+}
+
+nav.responsive ul li {
+  display: table;
+  padding: 10px;
+  width: 100%;
 }
 
 ./* ===== Footer =================================================== */
@@ -175,6 +199,7 @@ footer h3 {
 #icons > li > a {
   padding: 15px;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 /* ================================
@@ -362,9 +387,12 @@ footer h3 {
     border-radius: 10px;
     padding: 30px;
     margin: 1% 0 1%;
-    max-width: 30vw;
+    max-width: 90vw;
   }
 
+fieldset:nth-child(2) {
+  display: none;
+}
 /* ==============
     MOBILE: Menu
    ============== */
@@ -457,7 +485,7 @@ footer h3 {
     }
 
     .country-info p, #info-text {
-      width: 100%;
+      width: 90%;
       margin: 5% 0;
       padding: 1em;
     }
@@ -500,13 +528,18 @@ footer h3 {
      display: none;
    }
 
-   .toggle {
+   #toggle {
      display: block;
    }
 
-   header nav ul {
-     display: none;
-   }
+   header nav ul li > a {
+    padding: 10px;
+    border-radius: 20px;
+    float: right;
+    margin: 2%;
+    max-width: 90px;
+}
+
 
 }
 

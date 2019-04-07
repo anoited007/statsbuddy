@@ -64,16 +64,16 @@ $(function(){
     }
 
 
-      console.log("This is country " +country_codes);
-      console.log(country_code);
+      // console.log("This is country " +country_codes);
+      // console.log(country_code);
       return country_code;
       }
 
   function getDataPoint(){
     if(this.checked){
       indicator = indicators[this.value]
-      console.log(this.value);
-      console.log(indicator);
+      // console.log(this.value);
+      // console.log(indicator);
       return this.value;
   }
  }
@@ -94,7 +94,7 @@ function queryData() {
 
   if(data[1] != null){
     indicatorName = data[1][0]["indicator"]["value"];
-    console.log(indicatorName);
+    // console.log(indicatorName);
 
     $.each(data[1],function (index, data) {
       let date = data["date"];
@@ -110,15 +110,15 @@ function queryData() {
       if($.inArray(country_name,labels) === -1){
         labels.push(country_name);
       }
-      console.log("printing current items");
-      console.log(labels);
-      console.log(dates);
-      console.log(values);
+      // console.log("printing current items");
+      // console.log(labels);
+      // console.log(dates);
+      // console.log(values);
 
   })
 
   }
-  console.log("before calling drawGraph");
+  // console.log("before calling drawGraph");
    drawGraph(labels, dates, values, indicatorName);
 
   })
@@ -155,9 +155,9 @@ function drawGraph(labels, dates, values, indicatorName) {
           }
 
       }
-      console.log(valueSet1);
-      console.log(valueSet2);
-      console.log(valueSet3);
+      // console.log(valueSet1);
+      // console.log(valueSet2);
+      // console.log(valueSet3);
       new Chart(canvas, {
           type: 'bar',
           data: {
@@ -174,7 +174,7 @@ function drawGraph(labels, dates, values, indicatorName) {
               },
               {
                 label: labels[2],
-                backgroundColor: "#8e5ea2",
+                backgroundColor: "#484A47",
                 data: valueSet3
               }
             ]
@@ -211,7 +211,7 @@ function drawGraph(labels, dates, values, indicatorName) {
         }
 
     }
-    console.log(valueSet1);
+    // console.log(valueSet1);
 
     new Chart(canvas, {
         type: 'line',
@@ -229,7 +229,7 @@ function drawGraph(labels, dates, values, indicatorName) {
             },
             {
               label: labels[2],
-              backgroundColor: "#8e5ea2",
+              backgroundColor: "#484A47",
               data: valueSet3
             }
           ]

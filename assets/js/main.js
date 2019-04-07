@@ -9,11 +9,7 @@ $.get("assets/templates/footer.html", function(data, status){
    $("footer").html(data);
 })
 
-
 $(function () {
-$("#toggle").on("click", function () {
-  $("header ul").css("display","block");
-})
 
   if (document.querySelector(".mln_sec")) {
     /* Initialiaze scrolling plugin */
@@ -27,6 +23,7 @@ $("#toggle").on("click", function () {
   }
 
 })
+
 
 /* Initialising Google Maps */
 function initMap() {
